@@ -787,10 +787,11 @@
     }
     .nav-pill a {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.72);
-      padding: 0.46rem 1.15rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.015em;
+      color: rgba(255, 255, 255, 0.82);
+      padding: 0.46rem 1.18rem;
       border-radius: 999px;
       text-decoration: none;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -798,15 +799,18 @@
     }
     .nav-pill a:hover {
       color: #ffffff;
-      background: rgba(255, 255, 255, 0.1);
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(8px);
     }
     .nav-pill a.active {
       color: #ffffff;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.58), rgba(99, 102, 241, 0.52));
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.32);
+      font-weight: 700;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.65), rgba(99, 102, 241, 0.58));
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.4);
       backdrop-filter: blur(12px);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     }
     .nav-divider {
       width: 1px;
@@ -1068,17 +1072,51 @@
       top: 1rem;
       right: 1.25rem;
       z-index: 1001;
+      align-items: center;
+      gap: 0.55rem;
     }
+    .mob-sound-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #94a3b8;
+      transition: all 0.25s ease;
+      padding: 0;
+    }
+    .mob-sound-btn:hover {
+      color: #ffffff;
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+    .mob-sound-btn.playing {
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+    }
+    .mob-sound-btn.playing .eq-bars { display: flex; }
+    .mob-sound-btn.playing #mobSoundIcon { display: none; }
+    .mob-sound-btn:not(.playing) .eq-bars { display: none; }
+    .mob-sound-btn:not(.playing) #mobSoundIcon { display: inline-block; font-size: 0.88rem; }
     .hamburger {
       display: flex;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
       background: rgba(15, 23, 42, 0.65);
-      padding: 8px;
-      border-radius: 8px;
+      padding: 9px;
+      border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
     .hamburger span {
       width: 22px;
@@ -1096,25 +1134,54 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      z-index: 999;
+      background: rgba(3, 5, 12, 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 99999;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.8rem;
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.6rem;
+      font-weight: 700;
       color: #94a3b8;
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: all 0.25s ease;
+      letter-spacing: 0.02em;
     }
-    .mobile-menu a:hover { color: #ffffff; }
+    .mobile-menu a:hover, .mobile-menu a.active {
+      color: #ffffff;
+      transform: scale(1.06);
+    }
+    .mobile-menu a.active {
+      color: #38bdf8;
+      text-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+    }
+    .mobile-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      font-size: 1.4rem;
+      color: #94a3b8;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.25s ease;
+    }
+    .mobile-close:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.15);
+    }
 
     /*==================================
       SLIDE 1 / HERO — Creative Portofolio
@@ -1166,45 +1233,46 @@
       100% { transform: scale(1.15) translate(15px, -15px); opacity: 1; }
     }
 
-    /* Geometric Accent Lines */
-    .s1-line-top {
-      position: absolute;
-      top: 14%;
-      left: 0;
-      width: min(440px, 40vw);
-      height: 2px;
-      background: linear-gradient(90deg, #6366f1 0%, #22d3ee 70%, transparent 100%);
-      box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
-      pointer-events: none;
-      z-index: 2;
-    }
-    .s1-line-bottom {
-      position: absolute;
-      bottom: 14%;
-      right: 0;
-      width: min(440px, 40vw);
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, #6366f1 30%, #22d3ee 100%);
-      box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    /* Top-Right Corner Triangles */
-    .s1-corner-triangles {
+    /* ── Top-Right Celestial Constellation Astrolabe ── */
+    .s1-corner-astrolabe, .s1-corner-triangles {
       position: absolute;
       top: 0;
       right: 0;
-      width: min(145px, 25vw);
-      height: min(145px, 25vw);
+      width: min(165px, 28vw);
+      height: min(165px, 28vw);
       pointer-events: none;
+      user-select: none;
       z-index: 2;
-      filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.45));
+      filter: drop-shadow(0 0 16px rgba(34, 211, 238, 0.35)) drop-shadow(0 0 32px rgba(99, 102, 241, 0.25));
     }
-    .s1-corner-triangles svg {
+    .s1-corner-astrolabe svg, .s1-corner-triangles svg {
       width: 100%;
       height: 100%;
       display: block;
+      overflow: visible;
+    }
+    .astro-spin-dashed {
+      transform-origin: 160px 0px;
+      animation: astroOrbitSpin 26s linear infinite;
+    }
+    .astro-star-pulse {
+      animation: astroStarPulse 2.8s ease-in-out infinite alternate;
+      transform-origin: 68px 92px;
+    }
+    .astro-star-twinkle {
+      animation: astroStarTwinkle 2s ease-in-out infinite alternate;
+    }
+    @keyframes astroOrbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes astroStarPulse {
+      0% { opacity: 0.7; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 8px #22d3ee); }
+    }
+    @keyframes astroStarTwinkle {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 1; }
     }
 
     /* Center floating typography */
@@ -1218,6 +1286,7 @@
       text-align: center;
       user-select: none;
       padding: 1rem 0;
+      width: 100%;
       animation: heroFloat 6s ease-in-out infinite;
     }
     @keyframes heroFloat {
@@ -1229,33 +1298,46 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       width: fit-content;
-      max-width: min(840px, 94vw);
+      max-width: min(900px, 94vw);
       margin: 0 auto;
       user-select: none;
     }
     .s1-creative {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(4.4rem, 11vw, 8.5rem);
+      font-size: clamp(3.6rem, 9.5vw, 6.8rem);
       font-weight: 700;
       color: transparent;
-      -webkit-text-stroke: 2.4px #22d3ee;
+      -webkit-text-stroke: 2.2px #22d3ee;
       line-height: 1;
-      transform: rotate(-2deg);
-      margin-left: 0;
+      transform: rotate(-2.5deg);
+      text-align: center;
+      margin: 0 auto -0.28em;
       letter-spacing: 0.02em;
-      filter: drop-shadow(0 0 14px rgba(34, 211, 238, 0.4));
+      filter: drop-shadow(0 0 14px rgba(34, 211, 238, 0.45));
+      z-index: 2;
     }
     .s1-portofolio {
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(4.6rem, 11.5vw, 8.8rem);
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 0.95;
-      margin-top: -0.15em;
-      margin-left: 14%;
-      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 18px rgba(34, 211, 238, 0.25);
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: clamp(3.8rem, 11vw, 8.2rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 auto;
+      background: linear-gradient(175deg, #ffffff 0%, #f8fafc 40%, #e0f2fe 75%, #bae6fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: 
+        drop-shadow(0 2px 0 rgba(255, 255, 255, 0.4))
+        drop-shadow(0 6px 18px rgba(0, 0, 0, 0.85))
+        drop-shadow(0 0 28px rgba(34, 211, 238, 0.3));
+      z-index: 1;
     }
 
     /* Compact glass badge for name & role */
@@ -1293,30 +1375,104 @@
       font-weight: 300;
     }
 
-    /* Bottom-Left Dots Grid */
-    .s1-dots-grid {
+    /* ── Bottom-Left Celestial Orbit Telemetry Widget (Futuristic HUD) ── */
+    .s1-celestial-hud {
       position: absolute;
-      bottom: 2.2rem;
-      left: 5%;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: min(11px, 2.2vw);
+      bottom: 2rem;
+      left: 4.5%;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.52rem 0.95rem;
+      background: rgba(10, 15, 28, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 20px rgba(34, 211, 238, 0.14);
       pointer-events: none;
+      user-select: none;
       z-index: 2;
     }
-    .s1-dot {
-      width: min(8px, 1.8vw);
-      height: min(8px, 1.8vw);
+    .hud-radar {
+      position: relative;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #6366f1, #22d3ee);
-      box-shadow: 0 0 8px rgba(34, 211, 238, 0.55);
-      animation: dotPulse 3s ease-in-out infinite alternate;
+      border: 1px dashed rgba(34, 211, 238, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
     }
-    .s1-dot:nth-child(even) { animation-delay: 0.5s; }
-    .s1-dot:nth-child(3n) { animation-delay: 1s; }
-    @keyframes dotPulse {
-      0% { opacity: 0.45; transform: scale(0.9); }
-      100% { opacity: 0.95; transform: scale(1.1); }
+    .hud-radar-sweep {
+      position: absolute;
+      inset: -1px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(34, 211, 238, 0.45) 0deg, transparent 75deg);
+      animation: hudRadarSweep 3.6s linear infinite;
+    }
+    .hud-radar-ring {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(99, 102, 241, 0.45);
+      z-index: 1;
+    }
+    .hud-radar-core {
+      position: relative;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #22d3ee;
+      box-shadow: 0 0 8px #22d3ee;
+      z-index: 2;
+      animation: hudCorePulse 2s ease-in-out infinite;
+    }
+    @keyframes hudRadarSweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes hudCorePulse {
+      0%, 100% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+    .hud-telemetry {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      line-height: 1.2;
+    }
+    .hud-telemetry-top {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #e2e8f0;
+      text-transform: uppercase;
+    }
+    .hud-telemetry-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #22d3ee;
+      box-shadow: 0 0 6px #22d3ee;
+      animation: hudDotBlink 1.8s ease-in-out infinite alternate;
+    }
+    @keyframes hudDotBlink {
+      0% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+    .hud-telemetry-sub {
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: #64748b;
+      letter-spacing: 0.06em;
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     /* Explore / Scroll Mouse Button */
@@ -1378,9 +1534,9 @@
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .nav-pill { display: none; }
-      .nav-hamburger-wrap { display: block; }
-      .s1-corner-triangles { width: 90px; height: 90px; }
-      .s1-line-top, .s1-line-bottom { width: 140px; }
+      .nav-hamburger-wrap { display: flex; }
+      .s1-corner-astrolabe, .s1-corner-triangles { display: none !important; }
+      .s1-celestial-hud { display: none !important; }
     }
 
     /*==================================
@@ -1406,10 +1562,16 @@
     #about {
       position: relative;
       background: transparent;
-      padding: 2.5rem 1.5rem 1.25rem;
+      padding: 3.5rem 1.5rem 1.25rem;
+      scroll-margin-top: 70px;
     }
 
-    /* Top Centered Section Title - Clean, prominent */
+    /* Top Centered Section Header - Clean, prominent, structured like other sections */
+    .about-hero-header {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 2.2rem;
+    }
     .about-hero-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(2.6rem, 4.5vw, 3.8rem);
@@ -1417,8 +1579,41 @@
       color: #ffffff;
       text-align: center;
       margin-top: 0;
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.35rem;
       letter-spacing: -0.025em;
+      min-height: 1.25em;
+    }
+    .about-hero-title .typed-cursor {
+      color: #22d3ee;
+      font-weight: 300;
+      opacity: 0.9;
+      text-shadow: 0 0 10px rgba(34, 211, 238, 0.7);
+      animation: typedBlink 0.8s infinite;
+    }
+    @keyframes typedBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .about-header-divider {
+      width: 54px;
+      height: 3px;
+      background: linear-gradient(90deg, #22d3ee, #6366f1);
+      border-radius: 3px;
+      margin: 0.6rem auto 0;
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.55);
+      position: relative;
+    }
+    .about-header-divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+      height: 6px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22d3ee;
     }
 
     /* 3-Column Free-Flow Layout (Proportional to Image 1) */
@@ -1619,16 +1814,21 @@
       transform: rotate(35deg);
     }
     .lang-opt {
-      transition: all 0.25s ease;
+      transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  text-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       letter-spacing: 0.04em;
-      padding: 0.1rem 0.32rem;
+      padding: 0.12rem 0.4rem;
       border-radius: 4px;
+      display: inline-block;
     }
     .lang-opt.active {
       color: #38bdf8;
       font-weight: 700;
-      background: rgba(56, 189, 248, 0.12);
-      text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.18);
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+      transform: scale(1.08);
     }
     .lang-divider {
       opacity: 0.35;
@@ -1638,24 +1838,54 @@
     .about-desc-wrap {
       position: relative;
       width: 100%;
+      overflow: hidden;
+      transition: height 0.36s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .about-desc-wrap .about-hero-p {
       font-size: clamp(0.96rem, 1.15vw, 1.08rem);
       line-height: 1.75;
       color: #cbd5e1;
       margin-bottom: 1.05rem;
-      transition: filter 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  letter-spacing 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      will-change: filter, opacity, transform, letter-spacing;
+      transition: opacity 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.36s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
     }
-    /* Efek Melebur (Dissolving / Vaporizing / Melt Transition) */
-    .about-desc-wrap.is-dissolving .about-hero-p {
-      filter: blur(12px) brightness(1.4);
+    /* Silky Smooth Exit (Staggered lift & soft fade out) */
+    .about-desc-wrap.lang-exit #aboutP1 {
       opacity: 0;
-      transform: scale(0.96) translateY(3px);
-      letter-spacing: 0.04em;
+      transform: translateY(-8px);
+      filter: blur(4px);
+      transition-duration: 0.22s;
+      transition-delay: 0ms;
+    }
+    .about-desc-wrap.lang-exit #aboutP2 {
+      opacity: 0;
+      transform: translateY(-8px);
+      filter: blur(4px);
+      transition-duration: 0.22s;
+      transition-delay: 45ms;
+    }
+    /* Incoming Preparation (Hidden below before reveal) */
+    .about-desc-wrap.lang-prep #aboutP1,
+    .about-desc-wrap.lang-prep #aboutP2 {
+      opacity: 0 !important;
+      transform: translateY(8px) !important;
+      filter: blur(4px) !important;
+      transition: none !important;
+    }
+    /* Smooth Enter (Staggered waterfall reveal) */
+    .about-desc-wrap.lang-enter #aboutP1 {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+      transition-delay: 20ms;
+    }
+    .about-desc-wrap.lang-enter #aboutP2 {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+      transition-delay: 95ms;
     }
     .about-hero-p strong {
       color: #ffffff;
@@ -1710,7 +1940,7 @@
       }
       .about-hero-layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.8rem;
         text-align: center;
       }
       .about-hero-left,
@@ -1719,14 +1949,48 @@
         text-align: center;
         padding-left: 0;
         max-width: 100%;
+        width: 100%;
+      }
+      .about-hero-greeting {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
       }
       .about-hero-name {
+        font-size: clamp(2.2rem, 7vw, 3.2rem);
         white-space: normal;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .btn-hubungi-pills {
+        margin: 0 auto;
+        font-size: 0.92rem;
+        padding: 0.65rem 1.45rem;
       }
       .portrait-morph-wrap {
-        width: 300px;
-        height: 420px;
-        --spot-radius: 85px;
+        width: min(290px, 78vw);
+        height: auto;
+        aspect-ratio: 300 / 420;
+        max-width: 100%;
+        margin: 0 auto;
+        --spot-radius: 80px;
+      }
+      .about-portrait-aura {
+        width: 320px;
+        height: 380px;
+      }
+      .about-lang-control {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 0.9rem;
+      }
+      .about-desc-wrap .about-hero-p {
+        text-align: center;
+        font-size: 0.94rem;
+        line-height: 1.7;
+        margin-bottom: 0.9rem;
+        padding: 0 0.5rem;
+      }
+      .btn-lihat-projek-clean {
+        margin: 0.35rem auto 0;
       }
     }
 
@@ -1915,11 +2179,12 @@
       flex-shrink: 0;
       overflow: hidden;
     }
-    .flag-svg {
+    .flag-img, .flag-svg {
       width: 38px;
       height: 25px;
+      object-fit: cover;
       border-radius: 4px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
       display: block;
     }
     .info-card-lang-status {
@@ -1987,15 +2252,17 @@
     }
     .porto-tab-btn{
       display:inline-flex;align-items:center;gap:.55rem;
-      background:transparent;color:#94a3b8;border:none;outline:none;
+      background:transparent;color:#cbd5e1;border:none;outline:none;
       cursor:pointer;font-family:'Space Grotesk',sans-serif;
-      font-size:.88rem;font-weight:600;padding:.58rem 1.3rem;
-      border-radius:8px;transition:all .22s ease;white-space:nowrap;
+      font-size:.92rem;font-weight:700;letter-spacing:0.015em;padding:.58rem 1.3rem;
+      border-radius:8px;transition:all .22s cubic-bezier(0.16, 1, 0.3, 1);white-space:nowrap;
     }
-    .porto-tab-btn:hover{color:#fff;background:rgba(255,255,255,.06)}
+    .porto-tab-btn:hover{color:#fff;background:rgba(255,255,255,.1)}
     .porto-tab-btn.active{
       background:#2563eb;color:#fff;
-      box-shadow:0 4px 18px rgba(37,99,235,.45);
+      font-weight:700;
+      text-shadow:0 1px 4px rgba(0,0,0,.35);
+      box-shadow:0 4px 20px rgba(37,99,235,.55), inset 0 1px 1px rgba(255,255,255,.3);
     }
     .porto-tab-panel{display:none;animation:panelFade .35s ease}
     .porto-tab-panel.active{display:block}
@@ -2159,8 +2426,9 @@
       border:1px solid var(--border);
       border-radius:var(--radius);
       padding:1.45rem 1.6rem;
-      transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);
+      transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr),height 0.36s cubic-bezier(0.16, 1, 0.3, 1);
       position:relative;
+      overflow:hidden;
     }
     .timeline-item.exp-row .exp-card:hover{
       border-color:var(--accent);
@@ -2169,6 +2437,56 @@
     }
     .timeline-item.exp-row .exp-card-body{
       padding:0;
+      transition:opacity 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.36s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change:opacity, transform, filter;
+    }
+
+    /* Projects Section Header & Controls */
+    .projects-section-header {
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .projects-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .projects-header-title {
+      font-size: 1.18rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: #ffffff;
+      transition: opacity 0.3s ease;
+    }
+    .projects-lang-control {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Silky Smooth Staggered Language Transitions for Project Cards */
+    .timeline-item.exp-row.lang-exit .exp-card-body {
+      opacity: 0;
+      transform: translateY(-8px);
+      filter: blur(4px);
+      transition-duration: 0.2s;
+    }
+    .timeline-item.exp-row.lang-prep .exp-card-body {
+      opacity: 0 !important;
+      transform: translateY(8px) !important;
+      filter: blur(4px) !important;
+      transition: none !important;
+    }
+    .timeline-item.exp-row.lang-enter .exp-card-body {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
     }
     .exp-laptop-floating{
       flex:0.95;
@@ -2545,18 +2863,20 @@
     @media (max-width: 900px){
       .timeline-item.exp-row{
         flex-direction:column;
-        gap:1.6rem;
+        gap:1.5rem;
         align-items:stretch;
-        margin-bottom:2.8rem;
+        margin-bottom:2.6rem;
+        width: 100%;
       }
       .exp-laptop-floating{
         width:100%;
         max-width:100%;
         min-width:0;
-        padding:0.5rem 0 1.2rem;
+        padding:0.4rem 0 1rem;
       }
       .laptop-mockup{
-        max-width:320px;
+        width: 100%;
+        max-width:min(320px, 86vw);
         animation:none;
         transform:perspective(900px) rotateY(-8deg) rotateX(5deg);
       }
@@ -2566,6 +2886,7 @@
       }
       .timeline-item.exp-row .exp-card{
         padding:1.2rem 1.2rem;
+        width: 100%;
       }
     }
 
@@ -2580,6 +2901,15 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.5rem;
+    }
+    @media (max-width: 680px) {
+      .certs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .cert-card {
+        max-width: 100%;
+      }
     }
     .cert-card {
       background: rgba(15, 19, 32, 0.85);
@@ -3128,34 +3458,288 @@
     /*==================================
       RESPONSIVE — MOBILE
     ==================================*/
-    @media(max-width:900px){
+    @media (max-width: 900px){
       .about-grid{grid-template-columns:1fr;gap:2.5rem}
       .about-photo-col{position:static;justify-content:center}
       .contact-grid{grid-template-columns:1fr;gap:2rem}
+      .about-cards-row-2col{grid-template-columns:1fr;gap:1.5rem}
+      .about-org-grid{grid-template-columns:1fr;gap:1rem}
     }
-    @media(max-width:768px){
-      nav .nav-pill{display:none}
-      .nav-hamburger-wrap{display:flex}
-      section{padding:4.5rem 1.25rem}
-      #portfolio{padding-bottom:1.8rem}
-      #contact{padding-top:1.8rem}
-      .about-stats{grid-template-columns:repeat(3,1fr)}
-      .form-row{grid-template-columns:1fr}
-      footer{flex-direction:column;text-align:center}
-      .edu-card{flex-direction:column;gap:.85rem}
+    @media (max-width: 768px){
+      html, body { overflow-x: hidden; width: 100%; }
+      nav .nav-pill { display: none !important; }
+      .nav-hamburger-wrap { display: flex !important; }
+      .s1-corner-astrolabe, .s1-corner-triangles { display: none !important; }
+      .s1-celestial-hud { display: none !important; }
+      section { padding: 4.2rem 1.25rem 2rem; }
+      #hero { padding: 2rem 1.25rem 3.5rem; min-height: 100vh; }
+      #about { padding: 2.8rem 1.25rem 1.5rem; }
+      #portfolio { padding: 2rem 1.25rem 1.8rem; }
+      #contact { padding: 2rem 1.25rem 2.8rem; }
+
+      /* Hero Refinements */
+      .s1-creative {
+        font-size: clamp(2.6rem, 10.5vw, 3.8rem);
+        transform: rotate(-2.5deg);
+        margin: 0 auto -0.22em;
+        text-align: center;
+      }
+      .s1-portofolio {
+        font-size: clamp(2.9rem, 12vw, 4.4rem);
+        margin: 0 auto;
+        text-align: center;
+        letter-spacing: -0.02em;
+      }
+      .s1-name-role {
+        font-size: clamp(0.74rem, 3.2vw, 0.86rem);
+        padding: 0.35rem 0.85rem;
+        gap: 0.4rem;
+        max-width: 92vw;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        border-radius: 999px;
+        line-height: 1.35;
+      }
+      .s1-scroll-btn {
+        bottom: 1.15rem;
+        font-size: 0.62rem;
+      }
+
+      /* Portfolio Tabs Navigation: Smooth Horizontal Scroll Container */
+      .porto-header {
+        margin-bottom: 1.4rem;
+      }
+      .porto-title {
+        font-size: clamp(2rem, 7vw, 2.8rem);
+      }
+      .porto-tabs-wrap {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0.3rem 0;
+        margin-bottom: 1.8rem;
+        justify-content: flex-start;
+      }
+      .porto-tabs-wrap::-webkit-scrollbar {
+        display: none;
+      }
+      .porto-tabs-nav {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 0.35rem;
+        padding: 0.35rem 0.45rem;
+        margin: 0 auto;
+        min-width: max-content;
+      }
+      .porto-tab-btn {
+        padding: 0.48rem 0.95rem;
+        font-size: 0.82rem;
+        gap: 0.45rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* Projects Timeline & Cards */
+      .projects-section-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem;
+        gap: 0.5rem;
+      }
+      .projects-header-title {
+        font-size: 1.05rem;
+      }
+      .timeline {
+        padding-left: 1.6rem;
+        margin-top: 1.2rem;
+      }
+      .timeline-connector {
+        left: -1.6rem;
+        width: 12px;
+        margin-left: -5px;
+      }
+      .timeline-dot {
+        width: 12px;
+        height: 12px;
+      }
+      .timeline-item.exp-row {
+        flex-direction: column;
+        gap: 1.35rem;
+        margin-bottom: 2.6rem;
+        width: 100%;
+      }
+      .timeline-item.exp-row .exp-card {
+        padding: 1.15rem 1.15rem;
+        width: 100%;
+      }
+      .exp-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+      }
+      .exp-role {
+        font-size: 1.02rem;
+        line-height: 1.35;
+      }
+      .exp-company {
+        font-size: 0.84rem;
+      }
+      .exp-desc {
+        font-size: 0.83rem;
+        line-height: 1.65;
+      }
+      .exp-laptop-floating {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0.2rem 0 1rem;
+      }
+      .laptop-mockup {
+        width: 100%;
+        max-width: min(315px, 86vw);
+        margin: 0 auto;
+        transform: perspective(900px) rotateY(-6deg) rotateX(4deg);
+      }
+      .exp-laptop-floating .card-img-slot,
+      .exp-laptop-floating .laptop-screen-display {
+        height: 170px;
+      }
+      .phones-dual-mockup {
+        gap: 12px;
+        width: 100%;
+        max-width: 100%;
+      }
+      .phone-mockup {
+        width: 130px;
+        height: 265px;
+      }
+
+      /* Certificates & Tools */
+      .certs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .cert-card {
+        max-width: 100%;
+      }
+      .cert-banner-wrap {
+        height: 190px;
+      }
+
+      /* Contact Dock */
+      .contact-intro {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        margin-bottom: 1.6rem;
+      }
+      .contact-social-dock {
+        gap: 0.85rem;
+        padding: 0.95rem 1.15rem;
+        border-radius: 20px;
+        max-width: 100%;
+      }
+      .dock-btn {
+        width: 66px;
+        height: 66px;
+        border-radius: 14px;
+        gap: 0.35rem;
+      }
+      .dock-btn i {
+        font-size: 1.35rem;
+      }
+      .dock-label {
+        font-size: 0.65rem;
+      }
     }
-    @media(max-width:480px){
-      section{padding:4rem 1rem}
-      #portfolio{padding-bottom:1.5rem}
-      #contact{padding-top:1.5rem}
-      .about-stats{grid-template-columns:1fr}
-      .photo-upload-wrapper{width:200px;height:200px}
-      .s1-creative{font-size:clamp(3.2rem, 12vw, 4.4rem);margin-left:0;transform:rotate(-2deg)}
-      .s1-portofolio{font-size:clamp(3.4rem, 13vw, 4.8rem);margin-left:8%;margin-top:-0.12em}
-      .s1-name-role{font-size:.74rem;padding:.28rem .75rem;gap:.35rem}
-      .s1-line-top,.s1-line-bottom{width:32vw}
-      .s1-dots-grid{gap:7px;bottom:1.5rem}
-      .s1-dot{width:6px;height:6px}
+
+    @media (max-width: 480px){
+      section { padding: 3.5rem 1rem 1.8rem; }
+      #hero { padding: 1.5rem 1rem 3.2rem; }
+      #about { padding: 2.2rem 1rem 1.2rem; }
+      #portfolio { padding: 1.8rem 1rem 1.5rem; }
+      #contact { padding: 1.8rem 1rem 2.5rem; }
+
+      .about-hero-title {
+        font-size: clamp(2.1rem, 8.5vw, 2.9rem);
+      }
+      .about-info-card {
+        padding: 0.85rem 0.95rem;
+        gap: 0.85rem;
+        border-radius: 14px;
+      }
+      .info-card-logo-wrap,
+      .info-card-icon-wrap,
+      .info-card-flag-wrap {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        border-radius: 10px;
+      }
+      .flag-img, .flag-svg {
+        width: 32px;
+        height: 21px;
+      }
+      .info-card-title {
+        font-size: 0.92rem;
+      }
+      .info-card-subtitle {
+        font-size: 0.78rem;
+      }
+      .info-card-date {
+        font-size: 0.72rem;
+      }
+      .info-card-role-badge {
+        font-size: 0.68rem;
+      }
+
+      .timeline {
+        padding-left: 1.35rem;
+      }
+      .timeline-connector {
+        left: -1.35rem;
+      }
+      .timeline-item.exp-row .exp-card {
+        padding: 1rem 0.95rem;
+      }
+      .laptop-mockup {
+        max-width: min(290px, 88vw);
+      }
+      .exp-laptop-floating .card-img-slot,
+      .exp-laptop-floating .laptop-screen-display {
+        height: 155px;
+      }
+      .phones-dual-mockup {
+        gap: 9px;
+      }
+      .phone-mockup {
+        width: 118px;
+        height: 242px;
+      }
+
+      .contact-social-dock {
+        gap: 0.65rem;
+        padding: 0.8rem 0.85rem;
+        border-radius: 18px;
+      }
+      .dock-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+      }
+      .dock-btn i {
+        font-size: 1.25rem;
+      }
+      .dock-label {
+        font-size: 0.6rem;
+      }
+      .contact-location-tag {
+        font-size: 0.74rem;
+        padding: 0.3rem 0.75rem;
+      }
     }
   </style>
 </head>
@@ -3327,8 +3911,16 @@
     </div>
   </div>
 </nav>
-<!-- hamburger for mobile -->
+<!-- hamburger & mobile sound controls -->
 <div class="nav-hamburger-wrap" id="hamWrap">
+  <button class="nav-sound-btn mob-sound-btn" id="mobSoundBtn" title="Mode Hening" aria-label="Mode Hening">
+    <span class="eq-bars">
+      <span class="eq-bar"></span>
+      <span class="eq-bar"></span>
+      <span class="eq-bar"></span>
+    </span>
+    <i class="fa fa-volume-up" id="mobSoundIcon"></i>
+  </button>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </div>
 
@@ -3340,27 +3932,72 @@
   <div class="s1-ambient-glow glow-1"></div>
   <div class="s1-ambient-glow glow-2"></div>
 
-  <!-- Top-left horizontal glowing line -->
-  <div class="s1-line-top"></div>
-
-  <!-- Top-right geometric triangles -->
-  <div class="s1-corner-triangles">
+  <!-- Top-Right Celestial Constellation Astrolabe Nexus -->
+  <div class="s1-corner-astrolabe" title="Celestial Constellation Nexus">
     <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="cornerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#6366f1"/>
-          <stop offset="100%" stop-color="#22d3ee"/>
+        <linearGradient id="astroLineGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.85"/>
+          <stop offset="60%" stop-color="#6366f1" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#818cf8" stop-opacity="0.15"/>
         </linearGradient>
-        <linearGradient id="cornerGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#818cf8"/>
-          <stop offset="100%" stop-color="#06b6d4"/>
-        </linearGradient>
+        <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#22d3ee" stop-opacity="1"/>
+          <stop offset="40%" stop-color="#38bdf8" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+        </radialGradient>
       </defs>
-      <polygon points="0,80 80,0 80,80" fill="url(#cornerGrad1)"/>
-      <polygon points="80,0 160,0 80,80" fill="#080c14"/>
-      <polygon points="160,0 160,80 80,80" fill="url(#cornerGrad2)"/>
-      <polygon points="160,80 160,160 80,160" fill="#050811"/>
-      <polygon points="80,80 160,80 80,160" fill="url(#cornerGrad1)"/>
+
+      <!-- Corner cyber framing bracket -->
+      <path d="M 90 0 L 160 0 L 160 70" fill="none" stroke="rgba(34, 211, 238, 0.25)" stroke-width="1.5"/>
+      <line x1="160" y1="0" x2="160" y2="4" stroke="#22d3ee" stroke-width="3"/>
+      <line x1="156" y1="0" x2="160" y2="0" stroke="#22d3ee" stroke-width="3"/>
+
+      <!-- Concentric Orbital Arcs originating from top-right corner (160, 0) -->
+      <path d="M 160 50 A 50 50 0 0 0 110 0" fill="none" stroke="rgba(99, 102, 241, 0.45)" stroke-width="1.2"/>
+      
+      <!-- Rotating Dashed Orbit Ring -->
+      <g class="astro-spin-dashed">
+        <path d="M 160 88 A 88 88 0 0 0 72 0" fill="none" stroke="rgba(34, 211, 238, 0.55)" stroke-width="1" stroke-dasharray="4,6"/>
+      </g>
+      
+      <path d="M 160 128 A 128 128 0 0 0 32 0" fill="none" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1" stroke-dasharray="2,8"/>
+      <path d="M 160 154 A 154 154 0 0 0 6 0" fill="none" stroke="rgba(34, 211, 238, 0.15)" stroke-width="1"/>
+
+      <!-- Radial Astrolabe Rays -->
+      <line x1="160" y1="0" x2="46" y2="114" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" stroke-dasharray="3,5"/>
+      <line x1="160" y1="0" x2="26" y2="62" stroke="rgba(34, 211, 238, 0.12)" stroke-width="1"/>
+      <line x1="160" y1="0" x2="98" y2="138" stroke="rgba(99, 102, 241, 0.15)" stroke-width="1"/>
+
+      <!-- Constellation Vector Connector Line -->
+      <polyline points="138,18 108,52 68,92 36,124" fill="none" stroke="url(#astroLineGrad)" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Star Node 1: Top-Right Micro Star -->
+      <circle cx="138" cy="18" r="3" fill="#22d3ee" class="astro-star-twinkle"/>
+      <circle cx="138" cy="18" r="6" fill="none" stroke="rgba(34, 211, 238, 0.4)" stroke-width="1"/>
+
+      <!-- Star Node 2: Intermediate Nexus with Crosshair -->
+      <g transform="translate(108, 52)">
+        <line x1="-5" y1="0" x2="5" y2="0" stroke="#38bdf8" stroke-width="1"/>
+        <line x1="0" y1="-5" x2="0" y2="5" stroke="#38bdf8" stroke-width="1"/>
+        <circle cx="0" cy="0" r="2.5" fill="#ffffff"/>
+      </g>
+
+      <!-- Star Node 3: Major Celestial 8-Point Nova Diamond -->
+      <g transform="translate(68, 92)" class="astro-star-pulse">
+        <circle cx="0" cy="0" r="14" fill="url(#starGlow)"/>
+        <path d="M 0 -11 Q 0 0 11 0 Q 0 0 0 11 Q 0 0 -11 0 Q 0 0 0 -11 Z" fill="#22d3ee"/>
+        <path d="M -5 -5 Q 0 0 5 -5 Q 0 0 5 5 Q 0 0 -5 5 Q 0 0 -5 -5 Z" fill="#ffffff" opacity="0.8"/>
+        <circle cx="0" cy="0" r="2" fill="#ffffff"/>
+      </g>
+
+      <!-- Star Node 4: Outer Constellation Node -->
+      <circle cx="36" cy="124" r="2.5" fill="#818cf8"/>
+      <circle cx="36" cy="124" r="5" fill="none" stroke="rgba(129, 140, 248, 0.5)" stroke-width="1" stroke-dasharray="2,2"/>
+
+      <!-- Telemetry degree text -->
+      <text x="145" y="14" fill="rgba(34,211,238,0.6)" font-size="6.5" font-family="'Space Grotesk', sans-serif" font-weight="600" letter-spacing="0.5">01</text>
+      <text x="82" y="8" fill="rgba(255,255,255,0.3)" font-size="5" font-family="'Space Grotesk', sans-serif" font-weight="500">90°</text>
     </svg>
   </div>
 
@@ -3380,15 +4017,20 @@
     </div>
   </div>
 
-  <!-- Bottom-right horizontal glowing line -->
-  <div class="s1-line-bottom"></div>
-
-  <!-- Bottom-left dots grid with breathing pulse -->
-  <div class="s1-dots-grid">
-    <div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div>
-    <div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div>
-    <div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div>
-    <div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div><div class="s1-dot"></div>
+  <!-- Bottom-left Celestial Orbit Telemetry Widget -->
+  <div class="s1-celestial-hud" title="Celestial Coordinates &amp; Orbit Telemetry">
+    <div class="hud-radar">
+      <div class="hud-radar-sweep"></div>
+      <div class="hud-radar-ring"></div>
+      <div class="hud-radar-core"></div>
+    </div>
+    <div class="hud-telemetry">
+      <div class="hud-telemetry-top">
+        <span class="hud-telemetry-dot"></span>
+        <span>Celestial Orbit</span>
+      </div>
+      <div class="hud-telemetry-sub">TNG &bull; 106.63&deg; E</div>
+    </div>
   </div>
 
   <!-- Interactive animated scroll explore button -->
@@ -3407,8 +4049,12 @@
 <section id="about">
   <div class="container">
 
-    <!-- Top Centered Header -->
-    <h2 class="about-hero-title" data-aos="fade-down">About Me</h2>
+    <!-- Top Centered Header (Structured like other sections) -->
+    <div class="about-hero-header" data-aos="fade-down">
+      <div class="section-label">Introduction</div>
+      <h2 class="about-hero-title"><span id="typedAbout">About Me</span></h2>
+      <div class="about-header-divider"></div>
+    </div>
 
     <!-- Free-Flow Layout (NO CARDS) -->
     <div class="about-hero-layout">
@@ -3532,7 +4178,7 @@
                 </div>
                 <div class="info-card-content">
                   <h4 class="info-card-title">PT Angkasa Pura Indonesia</h4>
-                  <div class="info-card-subtitle">Airport Technology Division</div>
+                  <div class="info-card-subtitle">Airport Technology Services Division</div>
                 </div>
               </div>
             </div>
@@ -3550,10 +4196,7 @@
             <!-- Indonesia -->
             <div class="about-info-card" data-aos="fade-up" data-aos-delay="150">
               <div class="info-card-flag-wrap">
-                <svg class="flag-svg" viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="36" height="12" fill="#e11d48"/>
-                  <rect y="12" width="36" height="12" fill="#ffffff"/>
-                </svg>
+                <img src="images/flags/flag_indonesia.webp" alt="Indonesia Flag" class="flag-img" />
               </div>
               <div class="info-card-content">
                 <h4 class="info-card-title">Indonesia</h4>
@@ -3566,14 +4209,7 @@
             <!-- English -->
             <div class="about-info-card" data-aos="fade-up" data-aos-delay="220">
               <div class="info-card-flag-wrap">
-                <svg class="flag-svg" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-                  <clipPath id="uk-clip-2"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
-                  <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
-                  <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
-                  <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#uk-clip-2)"/>
-                  <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
-                  <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
-                </svg>
+                <img src="images/flags/flag_english.webp" alt="United Kingdom Flag" class="flag-img" />
               </div>
               <div class="info-card-content">
                 <h4 class="info-card-title">English</h4>
@@ -3586,11 +4222,7 @@
             <!-- Arabic -->
             <div class="about-info-card" data-aos="fade-up" data-aos-delay="290">
               <div class="info-card-flag-wrap">
-                <svg class="flag-svg" viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="36" height="24" rx="2" fill="#15803d"/>
-                  <path d="M8,17 h20 M12,15 v4" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
-                  <text x="18" y="11" font-family="'Space Grotesk', sans-serif" font-size="7" font-weight="bold" fill="#ffffff" text-anchor="middle">العربية</text>
-                </svg>
+                <img src="images/flags/flag_arabic.webp" alt="Saudi Arabia Flag" class="flag-img" />
               </div>
               <div class="info-card-content">
                 <h4 class="info-card-title">Arabic</h4>
@@ -3689,9 +4321,19 @@
     <div class="porto-tab-panel active" id="tab-projects">
       <!-- Subsection: Projects Showcase (Timeline Design + Floating 3D Laptop Mockups) -->
       <div id="sub-work-experience">
-        <div style="margin-bottom:1.3rem;display:flex;align-items:center;gap:.65rem" data-aos="fade-up" data-aos-delay="40">
-          <i class="fa fa-laptop-code" style="color:var(--accent);font-size:1.15rem"></i>
-          <h3 style="font-size:1.18rem;font-weight:600;letter-spacing:-0.01em">My Projects &amp; Case Studies</h3>
+        <div class="projects-section-header" data-aos="fade-up" data-aos-delay="40">
+          <div class="projects-header-left">
+            <i class="fa fa-laptop-code" style="color:var(--accent);font-size:1.15rem"></i>
+            <h3 class="projects-header-title" id="projectsHeaderTitle">My Projects &amp; Case Studies</h3>
+          </div>
+          <div class="projects-lang-control">
+            <button type="button" class="lang-switch-btn" id="projectsLangSwitchBtn" aria-label="Switch Projects Language / Ubah Bahasa Projek" title="Switch Language (EN / ID)">
+              <i class="fa fa-globe lang-icon"></i>
+              <span class="lang-opt en active" id="projectsLangOptEn">EN</span>
+              <span class="lang-divider">/</span>
+              <span class="lang-opt id" id="projectsLangOptId">ID</span>
+            </button>
+          </div>
         </div>
         <div class="timeline">
 
@@ -3708,11 +4350,11 @@
               <div class="exp-card-body">
                 <div class="exp-top" style="margin-bottom:0.75rem">
                   <div style="flex:1;min-width:0">
-                    <div class="exp-role" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.35rem">PRIMA (Printer Inventory &amp; Maintenance Application)</div>
-                    <div class="exp-company" style="font-size:0.88rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem"><i class="fa fa-building" style="font-size:0.8rem"></i> PT Angkasa Pura Indonesia — Airport Technology Services Division</div>
+                    <div class="exp-role" id="projRole1" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.35rem">PRIMA (Printer Inventory &amp; Maintenance Application)</div>
+                    <div class="exp-company" id="projCompany1" style="font-size:0.88rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem"><i class="fa fa-building" style="font-size:0.8rem"></i> PT Angkasa Pura Indonesia — Airport Technology Services Division</div>
                   </div>
                 </div>
-                <p class="exp-desc" style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin:0">
+                <p class="exp-desc" id="projDesc1" style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin:0">
                   <strong>PRIMA</strong> is a web-based information system developed to digitize printer inventory monitoring, toner/ribbon consumption, and preventive maintenance for <strong>Managed Print Services</strong> at PT Angkasa Pura Indonesia. It replaces manual tracking to streamline operational reporting and ensure accurate third-party vendor billing verification.
                 </p>
               </div>
@@ -3747,11 +4389,11 @@
               <div class="exp-card-body">
                 <div class="exp-top" style="margin-bottom:0.75rem">
                   <div style="flex:1;min-width:0">
-                    <div class="exp-role" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.35rem">ETAMUGFOREST</div>
-                    <div class="exp-company" style="font-size:0.88rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem"><i class="fa fa-building" style="font-size:0.8rem"></i> PT Kaniki Parama Abadi</div>
+                    <div class="exp-role" id="projRole2" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.35rem">ETAMUGFOREST</div>
+                    <div class="exp-company" id="projCompany2" style="font-size:0.88rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem"><i class="fa fa-building" style="font-size:0.8rem"></i> PT Kaniki Parama Abadi</div>
                   </div>
                 </div>
-                <p class="exp-desc" style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin:0">
+                <p class="exp-desc" id="projDesc2" style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin:0">
                   <strong>ETAMUGFOREST</strong> is a web-based guest registration and client directory system developed for PT Kaniki Parama Abadi to digitize event participant check-ins via QR Code and centralize client collaboration records. It replaces manual spreadsheet tracking with real-time attendance monitoring and automated analytics to support corporate event operations.
                 </p>
               </div>
@@ -3786,11 +4428,11 @@
               <div class="exp-card-body">
                 <div class="exp-top" style="margin-bottom:0.75rem">
                   <div style="flex:1;min-width:0">
-                    <div class="exp-role" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.35rem">Business Process Analysis &amp; Re-Engineering</div>
-                    <div class="exp-company" style="font-size:0.88rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem"><i class="fa fa-building" style="font-size:0.8rem"></i> PT Hanja Prima Loka</div>
+                    <div class="exp-role" id="projRole3" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.35rem">Business Process Analysis &amp; Re-Engineering</div>
+                    <div class="exp-company" id="projCompany3" style="font-size:0.88rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem"><i class="fa fa-building" style="font-size:0.8rem"></i> PT Hanja Prima Loka</div>
                   </div>
                 </div>
-                <p class="exp-desc" style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin:0">
+                <p class="exp-desc" id="projDesc3" style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin:0">
                   <strong>PT Hanja Prima Loka</strong> is a business process analysis and re-engineering case study focused on optimizing gallon manufacturing and supply chain workflows using <strong>BPMN in Bizagi Modeler</strong>. By applying Value-Added Analysis to eliminate redundant Non-Value-Added (NVA) administrative steps and translating inventory bottlenecks into structured functional requirements, it establishes a streamlined TO-BE workflow for production and stock operations.
                 </p>
               </div>
@@ -3825,11 +4467,11 @@
               <div class="exp-card-body">
                 <div class="exp-top" style="margin-bottom:0.75rem">
                   <div style="flex:1;min-width:0">
-                    <div class="exp-role" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.35rem">SPORTIVE</div>
-                    <div class="exp-company" style="font-size:0.88rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem"><i class="fa fa-mobile-alt" style="font-size:0.85rem"></i> Mobile App UI/UX Prototype &amp; Usability Testing</div>
+                    <div class="exp-role" id="projRole4" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.35rem">SPORTIVE</div>
+                    <div class="exp-company" id="projCompany4" style="font-size:0.88rem;color:var(--accent);display:flex;align-items:center;gap:0.4rem"><i class="fa fa-mobile-alt" style="font-size:0.85rem"></i> Mobile App UI/UX Prototype &amp; Usability Testing</div>
                   </div>
                 </div>
-                <p class="exp-desc" style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin:0">
+                <p class="exp-desc" id="projDesc4" style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin:0">
                   <strong>Sportive</strong> is a mobile application UI/UX prototype designed to streamline sports venue bookings, sparring matchmaking, and running target tracking for local sports enthusiasts. Validated through scenario-based <strong>Usability Testing</strong> with 5 participants and synthesized via a <strong>Feedback Grid</strong>, the project established an actionable design iteration plan covering dark mode themes, color contrast improvements, and online transportation integration.
                 </p>
               </div>
@@ -4210,11 +4852,44 @@
 /* ── AOS ── */
 AOS.init({duration:880,easing:'ease-out-cubic',once:false,offset:65});
 
-/* ── Typed.js ── */
+/* ── Typed.js: Hero Role ── */
 new Typed('#typed',{
-  strings:['Business Analyst','Certified System Analyst (CSA)','UX Researcher','UI/UX Designer'],
+  strings:['IT Business Analyst','Certified System Analyst (CSA)','UX Researcher','UI/UX Designer'],
   typeSpeed:55,backSpeed:30,loop:true,backDelay:1800
 });
+
+/* ── Typed.js: About Me Section Title ── */
+var aboutTyped = null;
+function initAboutTyped(){
+  if(aboutTyped) return;
+  var el = document.getElementById('typedAbout');
+  if(!el) return;
+  el.textContent = '';
+  aboutTyped = new Typed('#typedAbout', {
+    strings: ['About Me'],
+    typeSpeed: 85,
+    backSpeed: 45,
+    backDelay: 2800,
+    loop: true,
+    showCursor: true,
+    cursorChar: '|'
+  });
+}
+
+// Trigger typing when scrolled near #about or immediately if in view
+var aboutSec = document.getElementById('about');
+if(aboutSec && 'IntersectionObserver' in window){
+  var aboutObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        initAboutTyped();
+      }
+    });
+  }, { threshold: 0.1 });
+  aboutObserver.observe(aboutSec);
+} else {
+  initAboutTyped();
+}
 
 /* ── CELESTIAL ZODIAC 3D CURSOR & CONSTELLATION STARDUST ENGINE ── */
 (function(){
@@ -4860,21 +5535,25 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
-/* ── About Me Language Switcher with Dissolve / Melt Transition ── */
+/* ── Multilingual Portfolio Engine: About Me & Projects with Silky Staggered Morph Transitions ── */
 document.addEventListener('DOMContentLoaded', function(){
-  var btn = document.getElementById('aboutLangSwitchBtn');
-  var wrap = document.getElementById('aboutDescWrap');
-  var p1 = document.getElementById('aboutP1');
-  var p2 = document.getElementById('aboutP2');
-  var optEn = document.getElementById('langOptEn');
-  var optId = document.getElementById('langOptId');
+  var aboutBtn     = document.getElementById('aboutLangSwitchBtn');
+  var aboutWrap    = document.getElementById('aboutDescWrap');
+  var aboutP1      = document.getElementById('aboutP1');
+  var aboutP2      = document.getElementById('aboutP2');
+  var aboutOptEn   = document.getElementById('langOptEn');
+  var aboutOptId   = document.getElementById('langOptId');
 
-  if(!btn || !wrap || !p1 || !p2) return;
+  var projBtn      = document.getElementById('projectsLangSwitchBtn');
+  var projTitle    = document.getElementById('projectsHeaderTitle');
+  var projOptEn    = document.getElementById('projectsLangOptEn');
+  var projOptId    = document.getElementById('projectsLangOptId');
 
-  var currentLang = 'en'; // Default initial language: English
-  var isTransitioning = false;
+  var currentGlobalLang = 'en';
+  var isLangTransitioning = false;
+  var globeAngle = 0;
 
-  var content = {
+  var aboutData = {
     en: {
       p1: 'I am a <strong>System Analyst &amp; Business Analyst</strong> focusing on developing and designing functional, purpose-driven technology. I specialize in bridging business needs, system architecture, and technology to build high-impact digital products.',
       p2: 'Through <strong>BPMN</strong> modeling, <strong>UML</strong> specifications, and structured user acceptance testing (<strong>UAT</strong>), I transform complex ideas and requirements into intuitive, well-structured, and impactful digital solutions.'
@@ -4885,40 +5564,195 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   };
 
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
-    if(isTransitioning) return;
-    isTransitioning = true;
-
-    var nextLang = currentLang === 'en' ? 'id' : 'en';
-
-    // 1. Trigger 'melebur' dissolve effect
-    wrap.classList.add('is-dissolving');
-
-    // 2. Midpoint: swap text and update pills
-    setTimeout(function(){
-      p1.innerHTML = content[nextLang].p1;
-      p2.innerHTML = content[nextLang].p2;
-      currentLang = nextLang;
-
-      if(optEn && optId){
-        if(currentLang === 'en'){
-          optEn.classList.add('active');
-          optId.classList.remove('active');
-        } else {
-          optId.classList.add('active');
-          optEn.classList.remove('active');
+  var projectsData = {
+    en: {
+      header: 'My Projects &amp; Case Studies',
+      items: [
+        {
+          role: 'PRIMA (Printer Inventory &amp; Maintenance Application)',
+          company: '<i class="fa fa-building" style="font-size:0.8rem"></i> PT Angkasa Pura Indonesia — Airport Technology Services Division',
+          desc: '<strong>PRIMA</strong> is a web-based information system developed to digitize printer inventory monitoring, toner/ribbon consumption, and preventive maintenance for <strong>Managed Print Services</strong> at PT Angkasa Pura Indonesia. It replaces manual tracking to streamline operational reporting and ensure accurate third-party vendor billing verification.'
+        },
+        {
+          role: 'ETAMUGFOREST',
+          company: '<i class="fa fa-building" style="font-size:0.8rem"></i> PT Kaniki Parama Abadi',
+          desc: '<strong>ETAMUGFOREST</strong> is a web-based guest registration and client directory system developed for PT Kaniki Parama Abadi to digitize event participant check-ins via QR Code and centralize client collaboration records. It replaces manual spreadsheet tracking with real-time attendance monitoring and automated analytics to support corporate event operations.'
+        },
+        {
+          role: 'Business Process Analysis &amp; Re-Engineering',
+          company: '<i class="fa fa-building" style="font-size:0.8rem"></i> PT Hanja Prima Loka',
+          desc: '<strong>PT Hanja Prima Loka</strong> is a business process analysis and re-engineering case study focused on optimizing gallon manufacturing and supply chain workflows using <strong>BPMN in Bizagi Modeler</strong>. By applying Value-Added Analysis to eliminate redundant Non-Value-Added (NVA) administrative steps and translating inventory bottlenecks into structured functional requirements, it establishes a streamlined TO-BE workflow for production and stock operations.'
+        },
+        {
+          role: 'SPORTIVE',
+          company: '<i class="fa fa-mobile-alt" style="font-size:0.85rem"></i> Mobile App UI/UX Prototype &amp; Usability Testing',
+          desc: '<strong>Sportive</strong> is a mobile application UI/UX prototype designed to streamline sports venue bookings, sparring matchmaking, and running target tracking for local sports enthusiasts. Validated through scenario-based <strong>Usability Testing</strong> with 5 participants and synthesized via a <strong>Feedback Grid</strong>, the project established an actionable design iteration plan covering dark mode themes, color contrast improvements, and online transportation integration.'
         }
-      }
+      ]
+    },
+    id: {
+      header: 'Projek &amp; Studi Kasus Saya',
+      items: [
+        {
+          role: 'PRIMA (Aplikasi Inventarisasi &amp; Pemeliharaan Printer)',
+          company: '<i class="fa fa-building" style="font-size:0.8rem"></i> PT Angkasa Pura Indonesia — Airport Technology Services Division',
+          desc: '<strong>PRIMA</strong> adalah sistem informasi berbasis web yang dikembangkan untuk mendigitalkan pemantauan inventaris printer, konsumsi toner/ribbon, dan pemeliharaan preventif untuk <strong>Managed Print Services</strong> di PT Angkasa Pura Indonesia. Menggantikan pencatatan manual guna merampingkan pelaporan operasional dan memastikan verifikasi penagihan vendor pihak ketiga berlangsung akurat.'
+        },
+        {
+          role: 'ETAMUGFOREST',
+          company: '<i class="fa fa-building" style="font-size:0.8rem"></i> PT Kaniki Parama Abadi',
+          desc: '<strong>ETAMUGFOREST</strong> adalah sistem direktori klien dan registrasi tamu berbasis web yang dikembangkan untuk PT Kaniki Parama Abadi guna mendigitalkan absensi peserta acara via QR Code serta memusatkan data kolaborasi klien. Menggantikan pelacakan spreadsheet manual dengan pemantauan kehadiran real-time dan analitik otomatis untuk mendukung operasional event perusahaan.'
+        },
+        {
+          role: 'Analisis &amp; Rekayasa Ulang Proses Bisnis (BPR)',
+          company: '<i class="fa fa-building" style="font-size:0.8rem"></i> PT Hanja Prima Loka',
+          desc: '<strong>PT Hanja Prima Loka</strong> adalah studi kasus analisis dan rekayasa ulang proses bisnis yang berfokus pada optimalisasi alur kerja manufaktur galon dan rantai pasok menggunakan <strong>BPMN di Bizagi Modeler</strong>. Dengan menerapkan Analisis Nilai Tambah (Value-Added Analysis) untuk memangkas tahapan administratif non-nilai tambah (NVA) yang redundan serta menerjemahkan kendala inventaris ke dalam kebutuhan fungsional terstruktur, studi ini menghasilkan rancangan alur kerja TO-BE yang efisien untuk operasional produksi dan stok.'
+        },
+        {
+          role: 'SPORTIVE',
+          company: '<i class="fa fa-mobile-alt" style="font-size:0.85rem"></i> Prototipe UI/UX Aplikasi Mobile &amp; Pengujian Kegunaan (Usability Testing)',
+          desc: '<strong>Sportive</strong> adalah prototipe desain UI/UX aplikasi mobile yang dirancang untuk mempermudah reservasi lapangan olahraga, pencarian lawan sparring, dan pelacakan target lari bagi komunitas olahraga lokal. Divalidasi melalui <strong>Usability Testing</strong> berbasis skenario bersama 5 partisipan dan disintesis lewat <strong>Feedback Grid</strong>, proyek ini menghasilkan rencana iterasi desain konkret mencakup tema mode gelap, peningkatan kontras warna, dan integrasi transportasi daring.'
+        }
+      ]
+    }
+  };
 
-      // 3. Reconstitute / crystallize back into view
-      wrap.classList.remove('is-dissolving');
+  function switchGlobalLanguage(targetLang){
+    if(isLangTransitioning) return;
+    isLangTransitioning = true;
+
+    if(typeof playClickSound === 'function') playClickSound();
+
+    globeAngle += 180;
+    document.querySelectorAll('.lang-switch-btn .lang-icon').forEach(function(icon){
+      icon.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+      icon.style.transform = 'rotate(' + globeAngle + 'deg)';
+    });
+
+    // 1. Sync Pill indicators
+    [aboutOptEn, projOptEn].forEach(function(el){
+      if(el) el.classList.toggle('active', targetLang === 'en');
+    });
+    [aboutOptId, projOptId].forEach(function(el){
+      if(el) el.classList.toggle('active', targetLang === 'id');
+    });
+
+    // 2. Animate About Me Section (if present)
+    var aboutOldH = aboutWrap ? aboutWrap.offsetHeight : 0;
+    if(aboutWrap){
+      aboutWrap.style.height = aboutOldH + 'px';
+      aboutWrap.classList.remove('lang-enter', 'lang-prep');
+      aboutWrap.classList.add('lang-exit');
+    }
+
+    // 3. Animate Project Cards
+    var projRows = document.querySelectorAll('.timeline-item.exp-row');
+    var oldCardHeights = [];
+    projRows.forEach(function(row, idx){
+      var card = row.querySelector('.exp-card');
+      oldCardHeights[idx] = card ? card.offsetHeight : 0;
+      if(card) card.style.height = oldCardHeights[idx] + 'px';
 
       setTimeout(function(){
-        isTransitioning = false;
-      }, 350);
-    }, 320);
-  });
+        row.classList.remove('lang-enter', 'lang-prep');
+        row.classList.add('lang-exit');
+      }, idx * 35);
+    });
+
+    if(projTitle){
+      projTitle.style.opacity = '0.3';
+    }
+
+    // 4. Midpoint: swap content & start staggered entrance
+    setTimeout(function(){
+      // Update About Me
+      if(aboutWrap && aboutP1 && aboutP2){
+        aboutWrap.classList.remove('lang-exit');
+        aboutWrap.classList.add('lang-prep');
+
+        aboutP1.innerHTML = aboutData[targetLang].p1;
+        aboutP2.innerHTML = aboutData[targetLang].p2;
+
+        aboutWrap.style.height = 'auto';
+        var aboutNewH = aboutWrap.offsetHeight;
+        aboutWrap.style.height = aboutOldH + 'px';
+        void aboutWrap.offsetHeight;
+        aboutWrap.style.height = aboutNewH + 'px';
+
+        requestAnimationFrame(function(){
+          aboutWrap.classList.remove('lang-prep');
+          aboutWrap.classList.add('lang-enter');
+        });
+      }
+
+      // Update Projects
+      if(projTitle){
+        projTitle.innerHTML = projectsData[targetLang].header;
+        projTitle.style.opacity = '1';
+      }
+
+      projRows.forEach(function(row, idx){
+        var itemData = projectsData[targetLang].items[idx];
+        if(itemData){
+          var roleEl = document.getElementById('projRole' + (idx + 1));
+          var compEl = document.getElementById('projCompany' + (idx + 1));
+          var descEl = document.getElementById('projDesc' + (idx + 1));
+
+          if(roleEl) roleEl.innerHTML = itemData.role;
+          if(compEl) compEl.innerHTML = itemData.company;
+          if(descEl) descEl.innerHTML = itemData.desc;
+        }
+
+        var card = row.querySelector('.exp-card');
+        if(card){
+          card.style.height = 'auto';
+          var newCardH = card.offsetHeight;
+          card.style.height = oldCardHeights[idx] + 'px';
+          void card.offsetHeight;
+          card.style.height = newCardH + 'px';
+        }
+
+        row.classList.remove('lang-exit');
+        row.classList.add('lang-prep');
+
+        setTimeout(function(){
+          row.classList.remove('lang-prep');
+          row.classList.add('lang-enter');
+        }, idx * 45);
+      });
+
+      currentGlobalLang = targetLang;
+
+      // 5. Cleanup inline heights & finalize
+      setTimeout(function(){
+        if(aboutWrap){
+          aboutWrap.style.height = '';
+          aboutWrap.classList.remove('lang-enter');
+        }
+        projRows.forEach(function(row){
+          var card = row.querySelector('.exp-card');
+          if(card) card.style.height = '';
+          row.classList.remove('lang-enter');
+        });
+        isLangTransitioning = false;
+      }, 520);
+
+    }, 240);
+  }
+
+  if(aboutBtn){
+    aboutBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      switchGlobalLanguage(currentGlobalLang === 'en' ? 'id' : 'en');
+    });
+  }
+
+  if(projBtn){
+    projBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      switchGlobalLanguage(currentGlobalLang === 'en' ? 'id' : 'en');
+    });
+  }
 });
 
 function initPersistentImages(){
@@ -5008,6 +5842,8 @@ initPersistentImages();
   var muteEnterBtn    = document.getElementById('musicMuteEnterBtn');
   var soundBtn        = document.getElementById('soundBtn');
   var soundIcon       = document.getElementById('soundIcon');
+  var mobSoundBtn     = document.getElementById('mobSoundBtn');
+  var mobSoundIcon    = document.getElementById('mobSoundIcon');
   var playlistDropdown= document.getElementById('navPlaylistDropdown');
   var dropdownCloseBtn= document.getElementById('dropdownCloseBtn');
   var dropdownList    = document.getElementById('dropdownTrackList');
@@ -5196,6 +6032,11 @@ initPersistentImages();
         soundBtn.setAttribute('title', 'Mode Hening: Matikan Musik Latar');
       }
       if(soundIcon) soundIcon.className = 'fa fa-volume-up';
+      if(mobSoundBtn){
+        mobSoundBtn.classList.add('playing');
+        mobSoundBtn.setAttribute('title', 'Mode Hening: Matikan Musik Latar');
+      }
+      if(mobSoundIcon) mobSoundIcon.className = 'fa fa-volume-up';
       if(navPlaylistToggleBtn) navPlaylistToggleBtn.classList.add('playing');
     } else {
       if(soundBtn){
@@ -5203,6 +6044,11 @@ initPersistentImages();
         soundBtn.setAttribute('title', 'Putar Musik Latar');
       }
       if(soundIcon) soundIcon.className = 'fa fa-volume-mute';
+      if(mobSoundBtn){
+        mobSoundBtn.classList.remove('playing');
+        mobSoundBtn.setAttribute('title', 'Putar Musik Latar');
+      }
+      if(mobSoundIcon) mobSoundIcon.className = 'fa fa-volume-mute';
       if(navPlaylistToggleBtn) navPlaylistToggleBtn.classList.remove('playing');
     }
 
@@ -5372,6 +6218,19 @@ initPersistentImages();
   // Tombol Kiri di Navbar: MODE HENING TOGGLE (Pencet = Mode Hening, Pencet Lagi = Music Play)
   if(soundBtn){
     soundBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      if(isAudioPlaying){
+        stopAudio();
+      } else {
+        resumeAudio();
+      }
+    });
+  }
+
+  // Mobile Sound Toggle Button
+  if(mobSoundBtn){
+    mobSoundBtn.addEventListener('click', function(e){
       e.preventDefault();
       e.stopPropagation();
       if(isAudioPlaying){
