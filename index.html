@@ -181,16 +181,24 @@
     ==================================*/
     #loader {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      min-height: -webkit-fill-available;
       background: radial-gradient(circle at 50% 45%, #080d1e 0%, #03050a 80%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
+      z-index: 999999;
       padding: 1.5rem;
-      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s ease;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
       overflow: hidden;
+      box-sizing: border-box;
     }
     #loader.hidden {
       opacity: 0;
@@ -207,6 +215,8 @@
       justify-content: center;
       transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 2;
+      cursor: pointer;
+      touch-action: manipulation;
     }
     .loader-counter-box.fade-out {
       opacity: 0;
@@ -237,12 +247,12 @@
     /* 3D Giant Typography */
     .loader-pct-wrap {
       perspective: 1000px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       user-select: none;
     }
     .loader-pct {
       font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: clamp(5.5rem, 14vw, 9.8rem);
+      font-size: clamp(4rem, 12vw, 8rem);
       font-weight: 800;
       line-height: 0.92;
       letter-spacing: -0.04em;
@@ -371,6 +381,30 @@
       color: #e2e8f0;
       letter-spacing: 0.04em;
     }
+    .loader-skip-hint {
+      margin-top: 1rem;
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: rgba(148, 163, 184, 0.75);
+      letter-spacing: 0.06em;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 0.35rem 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.25s ease;
+      touch-action: manipulation;
+    }
+    .loader-skip-hint:hover {
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.12);
+      transform: translateY(-1px);
+    }
 
     /* State 2: Music Selection Experience Modal */
     .music-modal-box {
@@ -379,14 +413,18 @@
       transform: scale(0.94);
       transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       width: min(520px, 92vw);
-      background: rgba(13, 20, 36, 0.75);
+      max-height: 90vh;
+      max-height: 90dvh;
+      overflow-y: auto;
+      background: rgba(13, 20, 36, 0.85);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 24px;
-      padding: 2rem 2.2rem;
+      padding: clamp(1.2rem, 3.5vw, 2rem) clamp(1rem, 3.5vw, 2.2rem);
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), inset 0 1px 1.5px rgba(255, 255, 255, 0.25);
       text-align: center;
+      box-sizing: border-box;
     }
     .music-modal-box.show {
       display: flex;
@@ -643,18 +681,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 960px;
+      padding: 0 1.25rem;
+      box-sizing: border-box;
       pointer-events: none;
+      text-align: center;
       gap: 0;
     }
 
-    /* "WELCOME TO MY" — big 3D line 1 */
+    /* "WELCOME TO MY" — refined 3D line 1 */
     .wl-line1 {
       font-family: 'Space Grotesk', -apple-system, sans-serif;
-      font-size: clamp(2.8rem, 8.5vw, 7rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: 0.08em;
+      font-size: clamp(0.95rem, 3.2vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: clamp(0.12em, 0.45vw, 0.28em);
       text-transform: uppercase;
+      white-space: nowrap;
+      max-width: 95vw;
       /* Glossy white 3D gradient */
       background: linear-gradient(175deg,
         #ffffff 0%,
@@ -669,23 +715,25 @@
       /* 3D depth shadow stack */
       filter:
         drop-shadow(0 1px 0 rgba(255,255,255,0.4))
-        drop-shadow(0 4px 0 rgba(14,165,233,0.35))
-        drop-shadow(0 10px 25px rgba(14,165,233,0.45))
-        drop-shadow(0 25px 55px rgba(0,0,0,0.9));
-      margin-bottom: 0.08em;
+        drop-shadow(0 3px 0 rgba(14,165,233,0.35))
+        drop-shadow(0 8px 20px rgba(14,165,233,0.4))
+        drop-shadow(0 18px 40px rgba(0,0,0,0.85));
+      margin-bottom: 0.04em;
       opacity: 0;
     }
     .wl-line1.in  { animation: wlSlideDownIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
     .wl-line1.out { animation: wlSlideUpOut  0.42s cubic-bezier(0.4,0,1,1)   0s    both; }
 
-    /* "PORTFOLIO" — massive 3D line 2 */
+    /* "PORTFOLIO" — aesthetic chrome 3D line 2 */
     .wl-line2 {
       font-family: 'Space Grotesk', -apple-system, sans-serif;
-      font-size: clamp(5rem, 16vw, 13rem);
+      font-size: clamp(2rem, 7vw, 4.8rem);
       font-weight: 800;
-      line-height: 0.88;
-      letter-spacing: -0.04em;
+      line-height: 1;
+      letter-spacing: clamp(-0.01em, 0.1vw, 0.03em);
       text-transform: uppercase;
+      white-space: nowrap;
+      max-width: 95vw;
       /* Neon-to-indigo 3D chrome gradient */
       background: linear-gradient(165deg,
         #e0f2fe 0%,
@@ -701,10 +749,10 @@
       /* Heavy 3D extrusion effect */
       filter:
         drop-shadow(0 2px 0 rgba(255,255,255,0.5))
-        drop-shadow(0 6px 0 rgba(34,211,238,0.5))
-        drop-shadow(0 14px 0 rgba(14,116,144,0.3))
-        drop-shadow(0 20px 40px rgba(34,211,238,0.5))
-        drop-shadow(0 40px 80px rgba(0,0,0,0.95));
+        drop-shadow(0 5px 0 rgba(34,211,238,0.45))
+        drop-shadow(0 10px 0 rgba(14,116,144,0.25))
+        drop-shadow(0 16px 30px rgba(34,211,238,0.45))
+        drop-shadow(0 30px 60px rgba(0,0,0,0.9));
       opacity: 0;
     }
     .wl-line2.in  { animation: wlSlideUpIn  0.75s cubic-bezier(0.16,1,0.3,1) 0.5s  both; }
@@ -716,14 +764,14 @@
       height: 2px;
       border-radius: 999px;
       background: linear-gradient(90deg, transparent, #38bdf8, #818cf8, transparent);
-      box-shadow: 0 0 20px rgba(34,211,238,0.8);
-      margin: 0.55rem 0;
+      box-shadow: 0 0 16px rgba(34,211,238,0.7);
+      margin: clamp(0.35rem, 1vw, 0.75rem) 0;
       transform-origin: center;
       opacity: 0;
     }
     .wl-accent-line.in {
       animation: wlRevealLine 0.6s cubic-bezier(0.16,1,0.3,1) 0.35s both;
-      width: min(420px, 70vw);
+      width: min(280px, 50vw);
     }
     .wl-accent-line.out { animation: wlFadeOut 0.3s ease 0s both; }
 
@@ -3762,7 +3810,7 @@
 ══════════════════════════════════ -->
 <div id="loader">
   <!-- State 1: Progress percentage counter -->
-  <div class="loader-counter-box" id="loaderCounterBox">
+  <div class="loader-counter-box" id="loaderCounterBox" title="Ketuk untuk langsung masuk">
     <div class="loader-ambient-glow"></div>
     <div class="loader-pct-wrap">
       <div class="loader-pct" id="loaderPct">0<span class="pct-sign">%</span></div>
@@ -3773,7 +3821,7 @@
           <span class="loader-pulse-dot"></span>
           <span class="loader-status-text" id="loaderStatusText">INITIALIZING SYSTEM</span>
         </span>
-        <span class="loader-status-phase" id="loaderPhaseText">CELESTIAL 3D</span>
+        <span class="loader-status-phase" id="loaderPhaseText">SYSTEM BOOT</span>
       </div>
       <div class="loader-bar-wrap">
         <div class="loader-bar-track">
@@ -3786,6 +3834,9 @@
         <span class="loader-pct-sub" id="loaderPctSub">0%</span>
       </div>
     </div>
+    <button type="button" class="loader-skip-hint" id="loaderSkipBtn">
+      <span>Lewati / Skip</span> &rsaquo;
+    </button>
   </div>
 
   <!-- State 2: Interactive Glassmorphic Music Selector Modal -->
@@ -4850,13 +4901,19 @@
 
 
 /* ── AOS ── */
-AOS.init({duration:880,easing:'ease-out-cubic',once:false,offset:65});
+try {
+  if(window.AOS) AOS.init({duration:880,easing:'ease-out-cubic',once:false,offset:65});
+} catch(e){}
 
 /* ── Typed.js: Hero Role ── */
-new Typed('#typed',{
-  strings:['IT Business Analyst','Certified System Analyst (CSA)','UX Researcher','UI/UX Designer'],
-  typeSpeed:55,backSpeed:30,loop:true,backDelay:1800
-});
+try {
+  if(window.Typed && document.getElementById('typed')){
+    new Typed('#typed',{
+      strings:['IT Business Analyst','Certified System Analyst (CSA)','UX Researcher','UI/UX Designer'],
+      typeSpeed:55,backSpeed:30,loop:true,backDelay:1800
+    });
+  }
+} catch(e){}
 
 /* ── Typed.js: About Me Section Title ── */
 var aboutTyped = null;
@@ -4865,15 +4922,23 @@ function initAboutTyped(){
   var el = document.getElementById('typedAbout');
   if(!el) return;
   el.textContent = '';
-  aboutTyped = new Typed('#typedAbout', {
-    strings: ['About Me'],
-    typeSpeed: 85,
-    backSpeed: 45,
-    backDelay: 2800,
-    loop: true,
-    showCursor: true,
-    cursorChar: '|'
-  });
+  try {
+    if(window.Typed){
+      aboutTyped = new Typed('#typedAbout', {
+        strings: ['About Me'],
+        typeSpeed: 85,
+        backSpeed: 45,
+        backDelay: 2800,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|'
+      });
+    } else {
+      el.textContent = 'About Me';
+    }
+  } catch(e){
+    el.textContent = 'About Me';
+  }
 }
 
 // Trigger typing when scrolled near #about or immediately if in view
@@ -5103,24 +5168,26 @@ if(aboutSec && 'IntersectionObserver' in window){
 })();
 
 /* ── Particles.js ── */
-if(document.getElementById('particles-js')){
-  particlesJS('particles-js',{
-    particles:{
-      number:{value:65,density:{enable:true,value_area:950}},
-      color:{value:['#6366f1','#22d3ee','#ffffff']},
-      shape:{type:'circle'},
-      opacity:{value:.45,random:true,anim:{enable:true,speed:.6,opacity_min:.1}},
-      size:{value:2.4,random:true},
-      line_linked:{enable:true,distance:145,color:'#6366f1',opacity:.15,width:1},
-      move:{enable:true,speed:1.1,direction:'none',random:true,out_mode:'out'}
-    },
-    interactivity:{
-      detect_on:'window',
-      events:{onhover:{enable:true,mode:'grab'},onclick:{enable:true,mode:'push'}},
-      modes:{grab:{distance:160,line_linked:{opacity:.4}},push:{particles_nb:3}}
-    },
-    retina_detect:true
-  });
+if(typeof window.particlesJS === 'function' && document.getElementById('particles-js')){
+  try {
+    particlesJS('particles-js',{
+      particles:{
+        number:{value:65,density:{enable:true,value_area:950}},
+        color:{value:['#6366f1','#22d3ee','#ffffff']},
+        shape:{type:'circle'},
+        opacity:{value:.45,random:true,anim:{enable:true,speed:.6,opacity_min:.1}},
+        size:{value:2.4,random:true},
+        line_linked:{enable:true,distance:145,color:'#6366f1',opacity:.15,width:1},
+        move:{enable:true,speed:1.1,direction:'none',random:true,out_mode:'out'}
+      },
+      interactivity:{
+        detect_on:'window',
+        events:{onhover:{enable:true,mode:'grab'},onclick:{enable:true,mode:'push'}},
+        modes:{grab:{distance:160,line_linked:{opacity:.4}},push:{particles_nb:3}}
+      },
+      retina_detect:true
+    });
+  } catch(e){}
 }
 
 /* ── Navbar scroll ── */
@@ -5756,14 +5823,16 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 function initPersistentImages(){
-  document.querySelectorAll('.card-img-slot').forEach(function(slot){
-    var slotId = slot.getAttribute('data-slot');
-    if(!slotId) return;
-    var saved = localStorage.getItem('porto_img_' + slotId);
-    if(saved){
-      applySlotImage(slotId, saved);
-    }
-  });
+  try {
+    document.querySelectorAll('.card-img-slot').forEach(function(slot){
+      var slotId = slot.getAttribute('data-slot');
+      if(!slotId) return;
+      var saved = localStorage.getItem('porto_img_' + slotId);
+      if(saved){
+        applySlotImage(slotId, saved);
+      }
+    });
+  } catch(e){}
 
   // Persistent Profile Photo in About
   // About avatar is now fixed with dual-photo morph transition
@@ -6119,32 +6188,35 @@ initPersistentImages();
   var isEntering = false;
 
   function dismissLoader(){
-    // Direct immediately and securely to Slide 1 (#hero)
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    var heroEl = document.getElementById('hero');
-    if(heroEl){
-      heroEl.scrollIntoView({ behavior: 'instant', block: 'start' });
-    }
+    try {
+      window.scrollTo(0, 0);
+      var heroEl = document.getElementById('hero');
+      if(heroEl && heroEl.scrollIntoView){
+        heroEl.scrollIntoView();
+      }
+    } catch(e){}
+
     try {
       history.replaceState(null, null, window.location.pathname + window.location.search + '#hero');
     } catch(e){}
 
     // Ensure active nav link is Home / Hero
-    document.querySelectorAll('.nav-pill a, .mobile-menu a').forEach(function(a){
-      if(a.getAttribute('href') === '#hero'){
-        a.classList.add('active');
-      } else {
-        a.classList.remove('active');
-      }
-    });
+    try {
+      document.querySelectorAll('.nav-pill a, .mobile-menu a').forEach(function(a){
+        if(a.getAttribute('href') === '#hero'){
+          a.classList.add('active');
+        } else {
+          a.classList.remove('active');
+        }
+      });
+    } catch(e){}
 
     if(loader){
       loader.classList.add('hidden');
       setTimeout(function(){
         loader.style.display = 'none';
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-        if(heroEl) heroEl.scrollIntoView({ behavior: 'instant', block: 'start' });
-      }, 600);
+        try { window.scrollTo(0, 0); } catch(e){}
+      }, 500);
     }
   }
 
@@ -6161,6 +6233,13 @@ initPersistentImages();
     // Show welcome box
     if(welcomeBox) welcomeBox.classList.add('show');
 
+    // Tap anywhere on welcome box to instantly dismiss
+    if(welcomeBox){
+      welcomeBox.addEventListener('click', function(){
+        dismissLoader();
+      }, { once: true });
+    }
+
     // Grab 3 elements and trigger Canva-style slide-IN
     var el1    = document.getElementById('wlLine1');
     var elAcc  = document.getElementById('wlAccent');
@@ -6170,23 +6249,23 @@ initPersistentImages();
     if(elAcc) elAcc.classList.add('in');
     if(el2)   el2.classList.add('in');
 
-    // After 2.4s hold, play slide-OUT staggered (top → line → bottom)
+    // After 1.7s hold, play slide-OUT staggered (top → line → bottom)
     setTimeout(function(){
       if(el1)   { el1.classList.remove('in');   el1.classList.add('out');   }
       setTimeout(function(){
         if(elAcc) { elAcc.classList.remove('in'); elAcc.classList.add('out'); }
-      }, 80);
+      }, 70);
       setTimeout(function(){
         if(el2)   { el2.classList.remove('in');   el2.classList.add('out');   }
-      }, 160);
+      }, 140);
 
       // After slide-outs, do vertical panel wipe
       setTimeout(function(){
         var wipe = document.getElementById('wlWipe');
         if(wipe) wipe.classList.add('play');
-        setTimeout(function(){ dismissLoader(); }, 480);
-      }, 500);
-    }, 2400);
+        setTimeout(function(){ dismissLoader(); }, 450);
+      }, 420);
+    }, 1700);
   }
 
   function showMusicModal(){
@@ -6270,29 +6349,30 @@ initPersistentImages();
     });
   }
 
-  // Cinematic 2.4s loading animation with multi-phase cosmic rhythm
-  var DURATION = 2400;
+  // Fast, ultra-smooth 1.5s loading engine with dual-driver (rAF + Interval)
+  var DURATION = 1500;
   var start = Date.now();
   var countDone = false;
   var statusTextEl = document.getElementById('loaderStatusText');
   var phaseTextEl  = document.getElementById('loaderPhaseText');
   var pctSubEl     = document.getElementById('loaderPctSub');
+  var skipBtn      = document.getElementById('loaderSkipBtn');
 
   function updatePct(val){
-    val = Math.min(100, Math.floor(val));
+    val = Math.min(100, Math.max(0, Math.floor(val)));
     if(bar) bar.style.width = val + '%';
     if(pct) pct.innerHTML = val + '<span class="pct-sign">%</span>';
     if(pctSubEl) pctSubEl.textContent = val + '%';
 
-    // Cinematic rhythm status messages
+    // Rhythm status messages
     if(statusTextEl && phaseTextEl){
-      if(val < 30){
+      if(val < 25){
         statusTextEl.textContent = "INITIALIZING SYSTEM";
         phaseTextEl.textContent  = "SYSTEM BOOT";
-      } else if(val < 65){
+      } else if(val < 60){
         statusTextEl.textContent = "ALIGNING CELESTIAL MESH";
         phaseTextEl.textContent  = "3D COSMOS";
-      } else if(val < 92){
+      } else if(val < 90){
         statusTextEl.textContent = "CALIBRATING SOUNDTRACK";
         phaseTextEl.textContent  = "AUDIO ENGINE";
       } else {
@@ -6302,11 +6382,19 @@ initPersistentImages();
     }
   }
 
+  function finishLoaderProgress(){
+    if(countDone) return;
+    countDone = true;
+    updatePct(100);
+    setTimeout(function(){
+      showMusicModal();
+    }, 280);
+  }
+
   function step(){
     if(countDone) return;
     var elapsed = Date.now() - start;
     var progress = Math.min(elapsed / DURATION * 100, 100);
-    // Smooth cinematic cubic easing: starts gently, glides, then eases into 100
     var t = progress / 100;
     var eased = (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2) * 100;
     updatePct(eased);
@@ -6314,24 +6402,51 @@ initPersistentImages();
     if(progress < 100){
       requestAnimationFrame(step);
     } else {
-      countDone = true;
-      updatePct(100);
-      // Give visitors a 450ms moment to appreciate the 100% completed 3D state
-      setTimeout(function(){
-        showMusicModal();
-      }, 450);
+      finishLoaderProgress();
     }
   }
 
+  // Interval driver: guarantees animation never halts even if rAF is throttled by iOS Safari
+  var driveInterval = setInterval(function(){
+    if(countDone){
+      clearInterval(driveInterval);
+      return;
+    }
+    var elapsed = Date.now() - start;
+    if(elapsed >= DURATION){
+      clearInterval(driveInterval);
+      finishLoaderProgress();
+    } else {
+      var progress = Math.min(elapsed / DURATION * 100, 100);
+      var t = progress / 100;
+      var eased = (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2) * 100;
+      updatePct(eased);
+    }
+  }, 30);
+
   requestAnimationFrame(step);
 
+  // Hard safety timeout: never stuck past 1.8s
   setTimeout(function(){
     if(!countDone){
-      countDone = true;
-      updatePct(100);
-      showMusicModal();
+      finishLoaderProgress();
     }
-  }, DURATION + 800);
+  }, 1800);
+
+  // Instant skip on click / tap
+  if(counterBox){
+    counterBox.addEventListener('click', function(e){
+      e.preventDefault();
+      finishLoaderProgress();
+    });
+  }
+  if(skipBtn){
+    skipBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      finishLoaderProgress();
+    });
+  }
 })();
 </script>
 
